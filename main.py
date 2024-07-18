@@ -274,12 +274,20 @@ def parse_domain(domain:str, regex_emails, regex_robots, regex_href, headers:dic
     return False
   
   if links:
+    max_counter = 100
+    counter = 0
+
     for link in links:
-  
+
       if link in links_visited:
         continue
-    
-      print(f'[+] {link}')
+
+      if counter > max_counter:
+        break
+
+      counter += 1
+
+      print(f'[+] {counter} {link}')
       resp = do_get(session, link, None, headers)
     
       links_visited.add(link)
