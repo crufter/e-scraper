@@ -268,7 +268,7 @@ def parse_domain(domain:str, regex_emails, regex_robots, regex_href, headers:dic
   links = get_page_links(base_url, domain, main_resp, disallowed, regex_href)
   
   try:
-    f = open(f'{domain}_emails.txt', 'w')
+    f = open(f'emails.txt', 'w')
   except Exception as e:
     print(f'[-] {str(e)}')
     return False
